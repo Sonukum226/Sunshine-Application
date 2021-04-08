@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <!--  - This layout displays a given day's primary weather information, such as the date of the      -
+    - weather, an icon and description, and the high and low temperature.                          -
+    -                                                                                              -
+    - In order to use Android's data binding capabilities, (to avoid having to type findViewById   -
+    - over and over again) we wrap this layout in a <layout></layout> tag.                         -
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<layout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        >
+
+<!--        This guidline divides the screen to half-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_editor_absoluteX="192dp"
+        app:layout_editor_absoluteY="0dp"
+
+        />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/weather_icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Wednesday, 31 April"
+
+        />
+
+     <ImageView
+         android:id="@+id/weather_icon"
+         android:layout_width="96dp"
+         android:layout_height="96dp"
+         android:adjustViewBounds="true"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintLeft_toLeftOf="parent"
+         app:layout_constraintRight_toLeftOf="@+id/horizontal_middle"
+         app:layout_constraintTop_toTopOf="parent"
+         tools:src="@drawable/art_clouds"
+         tools:ignore="MissingConstraints" />
+
+     <TextView
+         android:id="@+id/weather_description"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="8dp"
+         android:textSize="20sp"
+         android:textColor="@color/secondary_text"
+         app:layout_constraintHorizontal_bias="0.52"
+         app:layout_constraintBottom_toBottomOf="@+id/weather_icon"
+         app:layout_constraintLeft_toLeftOf="@+id/weather_icon"
+         app:layout_constraintRight_toRightOf="@+id/weather_icon"
+         app:layout_constraintTop_toBottomOf="@+id/weather_icon"
+         tools:text="Rainy"
+         tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/high_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="72sp"
+            android:textColor="@color/primary_text"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/weather_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/weather_icon"
+            app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
+            app:layout_constraintHorizontal_bias="0.45"
+            tools:text="25"
+
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/low_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="36sp"
+            android:textColor="@color/secondary_text"
+            app:layout_constraintRight_toRightOf="@id/high_temperature"
+            app:layout_constraintBaseline_toBaselineOf="@+id/weather_description"
+            app:layout_constraintLeft_toLeftOf="@+id/high_temperature"
+            app:layout_constraintHorizontal_bias="0.45"
+            tools:text="210\5"
+
+            tools:ignore="MissingConstraints" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
